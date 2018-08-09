@@ -1,0 +1,25 @@
+README
+Minesweeper - CIS120 Final Project
+Thomas Wang
+
+This is a classic windows game Minesweeper, and the basic rules are to clear out the bombs. There are set 40 bombs,
+and click to reveal any spot while long hold on a spot to mark it as a bomb. The numbers mean how many bombs there 
+are adjacent to it, in its surrounding 8 blocks. To win, you have to mark all the bombs and click open every other
+spot. To lose, simply click open a bomb.
+
+The main changes I made was changing the argument of minefield to include another JLabel, which is the counter. The
+counter needs information directly from the minefield, and is updated everytime the minefield is updated. Therefore,
+I put the JLabel for counter accessible inside minefield so that minefield could directly change the text of the JLabel.
+
+The four concepts I used are 2-D array, Recursive algorithm, File I/O, and Collections.
+For 2-D array, I used this structure to model the Minefield. Each mine spot is a separate class created by me, and 
+I put them together and display as a 2-D array. It is convenient because the minefield is in fact a square with spots,
+and it is easy to access the ones around it in the 2-D array to calculate different things. For the recursive
+algorithm, I used a recursion funtion for "revealRest" in Minefield. I needed it to check the other empty block's
+states, and whether they are empty or not. I don't know where each empty block is, so I simply run a recursion on
+whether it is empty block or not. I test if an adjacent block is empty, and if it is, I run the same function for it
+as well. For File I/O, I used a "highscore" notepad to record the high score, which is the number of bombs left before
+the player lost/clicked on a bomb. It is calculated by the total number of bombs minus the bombs correctly flagged.
+There is also a button in the frame that resets the highscore file. I used Collections for recording which spots are
+flagged and which are bombs. I used a map because while each spot is not that different, I gave them a name with their
+positions when I put them into the map. I then used the maps to find which ones are bombs, and which ones are flagged.
